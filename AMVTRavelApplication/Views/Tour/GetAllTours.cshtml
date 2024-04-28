@@ -1,0 +1,70 @@
+﻿@model IEnumerable<AMVTRavelApplication.Models.TourDTO>
+
+@{
+    ViewData["Title"] = "Tours";
+}
+
+<h1>Tours</h1>
+
+<p>
+    <a asp-action="Create">New Tour</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Name)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Cod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Price)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.StartDate)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.EndDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Cod)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Price)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.StartDate)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.EndDate)
+            </td>
+            <td>
+                    @using (Html.BeginForm("Create", "Booking", FormMethod.Post))
+                    {
+                        @Html.Hidden("tourId", item.id)
+                        <button type="submit" class="btn btn-primary">Reserve</button>
+                    }
+                @Html.ActionLink("Edit", "Edit", new { id = item.id}) |
+                @Html.ActionLink("Details", "Details", new { id = item.id }, null) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

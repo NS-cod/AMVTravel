@@ -1,0 +1,60 @@
+﻿@model AMVTRavelApplication.Models.RegisterDTO
+@{
+    Layout = "_LayoutWithoutNavbar.cshtml";
+}
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+<h1>AMV Travel</h1>
+
+
+<hr />
+<h1 class="text-center">Join us!</h1>
+<div class="container">
+    <div class="row justify-content-center">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="card-header">Register</div>
+                <div class="card-body">
+                    <form asp-action="Register" class="needs-validation" novalidate>
+                        <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                        <div class="form-group">
+                            <label asp-for="Name" class="control-label">Name</label>
+                            <input asp-for="Name" class="form-control" required />
+                            <div class="invalid-feedback">Please provide a valid name.</div>
+                            <span asp-validation-for="Name" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Email" class="control-label">Email</label>
+                            <input asp-for="Email" class="form-control" required />
+                            <div class="invalid-feedback">Please provide a valid email.</div>
+                            <span asp-validation-for="Email" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <label asp-for="Password" class="control-label">Password</label>
+                            <input asp-for="Password" type="password" class="form-control" required />
+                            <div class="invalid-feedback">Please provide a valid password.</div>
+                            <span asp-validation-for="Password" class="text-danger"></span>
+                        </div>
+                        <div class="form-group">
+                            <input type="submit" value="Sign in" class="btn btn-primary" />
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<div>
+    <a asp-action="Login">Back to List</a>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

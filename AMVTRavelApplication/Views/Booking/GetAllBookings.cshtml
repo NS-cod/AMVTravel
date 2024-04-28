@@ -1,0 +1,49 @@
+﻿@model IEnumerable<AMVTRavelApplication.Models.BookingDTO>
+
+@{
+    ViewData["Title"] = "GetAllBookings";
+}
+
+<h1>Bookings</h1>
+
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.Client.UserName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tour.Cod)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Tour.Destination)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.BookingDate)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Client.UserName)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Tour.Cod)
+            </td>
+            <td>
+                    @Html.DisplayFor(modelItem => item.Tour.Destination)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.BookingDate)
+            </td>
+            <td>
+                @Html.ActionLink("Details", "Details", new { id = item.id }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.id })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

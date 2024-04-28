@@ -1,0 +1,25 @@
+﻿
+
+@model ErrorViewModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Error</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@10"></script>
+</head>
+<body>
+    <script>
+        Swal.fire({
+            icon: 'error',
+            title: 'Error',
+            text: '@Model.ErrorMessage'
+        }).then((result) => {
+            history.back();
+        });
+    </script>
+</body>
+</html>
