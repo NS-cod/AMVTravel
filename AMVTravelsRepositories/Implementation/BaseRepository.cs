@@ -49,7 +49,7 @@ namespace AMVTravelsRepositories.Implementation
 
             try
             {
-                var entity = await AMVTravelDbContextIdentity.Set<T>().Where(a => a.ID == id).FirstOrDefaultAsync();
+                var entity = await AMVTravelDbContextIdentity.Set<T>().Where(a => a.ID.Equals(id)).FirstOrDefaultAsync();
                
                 return entity;
             }

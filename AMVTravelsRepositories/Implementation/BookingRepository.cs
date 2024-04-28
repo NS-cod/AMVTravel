@@ -20,18 +20,18 @@ namespace AMVTravelsRepositories.Implementation
             this._contextIndentity = contextIndentity;
         }
 
-        //public async Task<Booking> GetByIdClient(string idClient)
-        //{
-        //    try
-        //    {
-        //        var entity = await _contextIndentity.Set<Booking>().Where(booking => booking.IdClient == idClient).FirstOrDefaultAsync();
+        public async Task<Booking> GetByIdClient(string idClient)
+        {
+            try
+            {
+                var entity = await _contextIndentity.Set<Booking>().Where(booking => booking.IdClient == idClient).FirstOrDefaultAsync();
 
-        //        return entity;
-        //    }
-        //    catch (Exception ex)
-        //    {
-        //        throw new Exception(ex.Message);
-        //    }
-        //}
+                return entity;
+            }
+            catch (Exception ex)
+            {
+                throw new Exception(ex.Message);
+            }
+        }
     }
 }

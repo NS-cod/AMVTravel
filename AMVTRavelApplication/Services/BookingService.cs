@@ -75,7 +75,7 @@ namespace AMVTRavelApplication.Services
         {
             try
             {
-                var bookingGetted = await _bookingRepository.Get(bookingDTOIdClient);
+                var bookingGetted = await _bookingRepository.GetByIdClient(bookingDTOIdClient);
                 if (bookingGetted == null)
                 {
                     return null;

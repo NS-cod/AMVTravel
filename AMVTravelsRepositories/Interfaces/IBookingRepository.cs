@@ -9,6 +9,6 @@ namespace AMVTravelsRepositories.Interfaces
 {
     public interface IBookingRepository : IBaseRepository<Booking>
     {
-        //public Task<Booking> GetByIdClient(string idClient);
+        public Task<Booking> GetByIdClient(string idClient);
     }
 }
